@@ -21,7 +21,7 @@ function! cdroot#find_root(markers)
         for marker in a:markers
             let l:fn = l:path . '/' . marker
             if filereadable(fn) || isdirectory(fn)
-                return path
+                return l:path
             endif
         endfor
     endwhile
@@ -41,5 +41,3 @@ function! cdroot#change_root()
     catch
     endtry
 endfunction
-
-
