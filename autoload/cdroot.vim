@@ -1,10 +1,6 @@
 function! cdroot#find_root(markers)
     let l:path = fnamemodify(expand('%'), ':p')
 
-    if empty(l:path)
-        let l:path = getcwd()
-    endif
-
     if l:path[0] != '/'
         return ''
     endif
