@@ -21,19 +21,18 @@ function! cdroot#find_root(markers)
             endif
         endfor
     endwhile
-
-    return ''
 endfunction
 
 function! cdroot#change_root()
-    if exists('b:root_dir') && g:cdroot_cd_once
+    if !exists('b:root_dir')
+        let b:root_dir = cdroot#find_root(g:cdroot_markers)
+        echo '[cdroot] ' . b:root_dir
+    elseif g:cdroot_cd_once
         return ''
     endif
 
     try
-        let b:root_dir = cdroot#find_root(g:cdroot_markers)
         if strlen(b:root_dir) && b:root_dir !=# getcwd()
-            echo '[cdroot] ' . b:root_dir
             execute ':cd' fnameescape(b:root_dir)
         endif
     catch
