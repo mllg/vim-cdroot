@@ -11,7 +11,7 @@ function! cdroot#find_root(markers)
         " stop if in home dir ('~')
         " stop if in root dir ('/')
         if l:path == expand('$HOME') || l:path == '/'
-            return fnamemodify(expand('%'), ':p')
+            return fnamemodify(expand('%'), ':p:h')
         endif
 
         for marker in a:markers
