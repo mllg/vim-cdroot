@@ -16,7 +16,7 @@ endif
 
 augroup cdroot
     autocmd!
-    autocmd VimEnter,BufEnter * call cdroot#change_root()
+    autocmd BufReadPost * call cdroot#change_root()
 augroup END
 
 let &cpo=s:keepcpo
