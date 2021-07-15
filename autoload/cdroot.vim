@@ -26,7 +26,6 @@ endfunction
 function! cdroot#change_root()
     if !exists('b:root_dir')
         let b:root_dir = cdroot#find_root(g:cdroot_markers)
-        echo '[cdroot] ' . b:root_dir
     elseif g:cdroot_cd_once
         return ''
     endif
